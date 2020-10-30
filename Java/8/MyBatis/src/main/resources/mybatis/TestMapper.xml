@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="name.az170.sandbox.mybatis.mapper.TestMapper">
+    <resultMap id="BaseResultMap" type="name.az170.sandbox.mybatis.model.TestTable">
+        <!-- 有效 -->
+        <result column="key_column" jdbcType="INTEGER" property="keyColumn" />
+        <result column="test_column_aa" jdbcType="VARCHAR" property="testColumnAa" />
+        <result column="test_column_aa" jdbcType="VARCHAR" property="testColumnAb" />
+        <result column="test_column_ab" jdbcType="VARCHAR" property="testColumnAa" />
+        <!-- 不会报错，但是无效 -->
+<!--        <result column="key_column" jdbcType="INTEGER" />-->
+<!--        <result column="test_column_aa" jdbcType="VARCHAR" />-->
+<!--        <result column="test_column_ab" jdbcType="VARCHAR" />-->
+<!--        <result column="test_column_ac" jdbcType="VARCHAR" />-->
+        <!-- 下面会报错，column属性是必须 -->
+<!--        <result property="keyColumn" />-->
+<!--        <result property="testColumnAa" />-->
+<!--        <result property="testColumnAb" />-->
+<!--        <result property="testColumnAc" />-->
+    </resultMap>
+    <resultMap id="PartialResultMap" type="name.az170.sandbox.mybatis.model.TestTable">
+        <result column="test_column_ab" jdbcType="VARCHAR" property="testColumnAa" />
+    </resultMap>
+</mapper>
